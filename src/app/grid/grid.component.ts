@@ -50,7 +50,7 @@ export class GridComponent implements AfterViewInit {
       for(var j=0; j<this.columns; j++) {
         var neighbours = this.getNeighbours(i, j);
 
-        console.log(i, j, neighbours);
+        // console.log(i, j, neighbours);
         
         // Rule 1 or Rule 3
         if ((this.grid[i][j] == 1) && ( (neighbours<2) || (neighbours>3) )) {
