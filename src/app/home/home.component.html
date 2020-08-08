@@ -1,28 +1,6 @@
 <div class="body">
     <div class="container">
-        <div>
-            <p>Enter number of rows and columns:</p>
-            <br/>
-        </div>
-        <form (ngSubmit)="onSubmit()">
-            <label for="rows">Rows: </label>
-            <input type="text" class="form-control" id="rows"
-                required
-                [(ngModel)]="rows" name="rows"
-                #name="ngModel">
-            <!-- Rows: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)]="rows"> -->
-            <br/>
-            <label for="columns">Columns: </label>
-            <input type="text" class="form-control" id="columns"
-                required
-                [(ngModel)]="columns" name="columns"
-                #name="ngModel">
-            <br/>
-            <button type="submit" class="btn btn-success">Submit</button>
-        </form>
-        <div>
-            {{rows}}
-            {{columns}}
-        </div>
+        <h1>Game of Life</h1>
+        <app-grid></app-grid>
     </div>
 </div>

@@ -1,0 +1,7 @@
+<button class="right" (click)="createNewGrid()">New Grid</button>
+<button (click)="animateOneStep()">One Step</button>
+<button (click)="runAnimation()" [disabled]="animation!=0">Start Animation</button>
+<button (click)="stopAnimation()" [disabled]="animation==0">Stop Animation</button>
+
+<br/>
+<canvas #canvas width="400" height="400" style="border: 2px solid white;"></canvas>
