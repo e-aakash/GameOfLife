@@ -1,27 +1,23 @@
 # GameOfLife
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+This is an implementation of [Conwasy's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) in a finite grid. This implementation has time complexity of O(m\*n) and space complexity of O(1), where the grid is of size m\*n
 
-## Development server
+This project is live at https://e-aakash.github.io/GameOfLife/home. Initial grid is randomly intialized.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The following rules are implemented in [Grid component](https://github.com/e-aakash/GameOfLife/blob/master/src/app/grid/grid.component.ts#L43):
 
-## Code scaffolding
+1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+2. Any live cell with two or three live neighbours lives on to the next generation.
+3. Any live cell with more than three live neighbours dies, as if by overpopulation.
+4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Implementation
 
-## Build
+The grid is updated in place, with special notations for change of state in previous generation. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- State 0: Cell is dead
+- State 1: Cell is alive
+- State -1: Cell was alive in previous generation, but dead in current generation. Sign signifies that it is now dead
+- State 2: Cell was dead in previous generation, but alive in current generation.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Addition of -1 and 2 state allows us to implement game of life in O(1) space, without the need for duplicating the grid.
