@@ -1,7 +1,29 @@
-<button class="right" (click)="createNewGrid()">New Grid</button>
-<button (click)="animateOneStep()">One Step</button>
-<button (click)="runAnimation()" [disabled]="animation!=0">Start Animation</button>
-<button (click)="stopAnimation()" [disabled]="animation==0">Stop Animation</button>
-
+<div class="options">
+    <button class="right" (click)="createNewGrid()">New Grid</button>
+    <button (click)="animateOneStep()">One Step</button>
+    <button (click)="runAnimation()" [disabled]="animation!=0">Start Animation</button>
+    <button (click)="stopAnimation()" [disabled]="animation==0">Stop Animation</button>
+</div>
 <br/>
 <canvas #canvas width="400" height="400" style="border: 2px solid white;"></canvas>
+<br/>Legend: <br/>
+<div class="legend">
+    <div>
+        Live: 
+        <svg width="20" height="20">
+            <rect width="20" height="20" style="fill:blue;stroke-width:3;stroke:white" />
+        </svg>
+    </div>
+    <div>
+        Dying: 
+        <svg width="20" height="20">
+            <rect width="20" height="20" style="fill:lightblue;stroke-width:3;stroke:white" />
+        </svg>
+    </div>
+    <div>
+        Dead: 
+        <svg width="20" height="20">
+            <rect width="20" height="20" style="fill:black;stroke-width:3;stroke:white" />
+        </svg>
+    </div>
+</div>

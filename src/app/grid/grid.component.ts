@@ -7,11 +7,11 @@ import {
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss']
 })
-export class GridComponent implements AfterViewInit {
-  width = 1000;
-  height = 500;
-  rows = 100;
-  columns = 50;
+export class GridComponent implements OnInit, AfterViewInit {
+  width = 900;
+  height = 450;
+  rows = 90;
+  columns = 45;
   resolution = 10;   // in px
   animation: number;
 
@@ -25,6 +25,10 @@ export class GridComponent implements AfterViewInit {
     this.animation = 0;
     this.createGrid();
    }
+
+  public ngOnInit() {
+    this.checkSize();
+  }
 
   public ngAfterViewInit() {
     const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
@@ -117,7 +121,7 @@ export class GridComponent implements AfterViewInit {
     this.animation = setInterval(() => {
       this.gameOfLife();
       this.drawGrid();  
-    }, 1);   
+    }, 200);   
   }
 
   stopAnimation() {
@@ -132,6 +136,20 @@ export class GridComponent implements AfterViewInit {
     }
     this.createGrid();
     this.drawGrid();
+  }
+
+  checkSize() {
+    var width = window.screen.width;
+    var height = window.screen.height;
+
+    // Smaller screen
+    if (width < 930) {
+      this.width = 300;
+      this.height = 200;
+      this.rows = 30;
+      this.columns = 20;
+      this.resolution = 10;   // in px    
+    }
   }
 
 }

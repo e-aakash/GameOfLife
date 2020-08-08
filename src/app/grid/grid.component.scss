@@ -2,3 +2,21 @@ button {
   padding: 10px;
   margin: 5px 5px 5px 0px;
 }
+
+.legend {
+  display: flex;
+
+  div {
+    padding-right: 30px;
+  }
+}
+
+.options {
+  display: flex;
+}
+
+@media only screen and (max-width: 920px) {
+  .options {
+    flex-direction: column;
+  }
+}
